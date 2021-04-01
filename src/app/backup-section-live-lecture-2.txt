@@ -1,0 +1,66 @@
+
+<section>
+    <div id="slidebox">
+    <a class="close"><i class="fa fa-times"></i></a>
+    <div class="live-card">
+      <div class="live-card-wrap">
+          <div class="inner-wrap">
+              <a class="white-top" ng-href="https://www.meritnation.com/cbse-class-9/math/demo-class---math-(solving-problems-using-identity)/free-live-classes/11_1_0_0_572931" href="https://www.meritnation.com/cbse-class-9/math/demo-class---math-(solving-problems-using-identity)/free-live-classes/11_1_0_0_572931">
+                  <div class="live-logo">
+                      <i class="mn-butterfly"></i>
+                      <span class="text-uppercase">live</span>
+                  </div>
+                  <div class="text-right">
+                      <button class="btn-class ng-binding">Mathematics</button>
+                  </div>
+                  <h4 id="className" class="ng-binding">Class - 9 Maths (Solvin...</h4>
+                  <div class="d-flex">
+                      <div class="fac-img">
+                          <span class="mn-butterfly"></span>
+                          <img id="teacherImage"alt="Ashish Patrick Sir" src="../../assets/img/students_pics/Ashish_Patrick.jpeg">
+                      </div>
+                      <div class="fac-info">
+                          <div class="d-flex justify-content-between">
+                              <div class="top">
+                                  <div>
+                                      <div class="name ng-binding" id="teacherName">Ashish Patrick</div>
+                                      <div class="sub ng-binding" id="faculty">Math Faculty</div>
+                                  </div>
+                              </div>
+                              <div class="bottom">
+                              <div ng-if="!card.isClassToday &amp;&amp; card.isUpComingClass &amp;&amp; !card.isRunningClass " class="ng-scope">
+                                      <div class="stext text-uppercase ng-binding">Fri, 21 Aug, 2020</div>
+                                      <div class="stime ng-binding">1:30 PM</div>
+                                  </div>
+
+
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="enrol-box">
+                      <div class="enrol-count">
+
+                      </div>
+
+                  </div>
+              </a>
+
+              <div class="shareBox">
+
+                <div class="d-flex align-item-center justify-content-end">
+
+                 <button ng-if="card.isRunningClass" class="btn-intrest ng-scope" ng-click="enterClass(card)" id="btn-0">Enter Class</button><!-- end ngIf: card.isRunningClass -->
+
+
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- <marquee onmouseover="this.stop();" onmouseout="this.start()">Live Lecture Scheduled On 19-08-2020 Topic: Electricity</marquee> -->
+
+    <!--end of code for like box-->
+    </div>
+    </section>

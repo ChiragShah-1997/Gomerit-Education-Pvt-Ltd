@@ -1,0 +1,261 @@
+
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="list-group list-group-flush">
+        <a routerLink= "/admin/admin-dashboard" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Dashboard</a>
+        <a routerLink= "/admin/admin-dashboard/online-lecture" class="list-group-item active"><span class="fa fa-fw fa-dashboard"></span> Schedule Live Lecture</a>
+        <a routerLink="/admin/admin-login" (click)="logout();" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Logout</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button id="menu-toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+      </nav>
+
+<div style="padding: 5px;">
+  <h1 class="page-header">Schedule Live Lecture</h1>
+  <hr/>
+
+
+
+   <!-- ======= Register Section ======= -->
+  <!-- <section id="contact" class="contact"> -->
+    <div class="container">
+      <div class="row">
+        <div *ngIf="showForm" class="col-md-6" data-aos="fade-up" data-aos-delay="300" style="float: none; margin: 0 auto;">
+
+          <form [formGroup]="onlineLectureForm" (ngSubmit)="schedule()" class="php-email-form">
+
+            <div class="form-group">
+              <label for ="datepickerforonlinelec">Lecture Date:</label>
+                    <input id="datepickerforonlinelec" placeholder="Date" formControlName="online_lecture_date" width="" class="form-control"  />
+                    <!-- <div *ngIf="submittedschedule && l.online_lecture_date.errors" class="invalid-feedback">
+                      <div *ngIf="l.online_lecture_date.errors.required">Date is required</div>
+                  </div> -->
+                  <!-- <div *ngIf="l.online_lecture_date.invalid && (l.online_lecture_date.dirty||l.online_lecture_date.touched)" class="alert alert-danger">
+                    Enter DOB in MM/dd/yyyy.
+                </div> -->
+            </div>
+
+            <div class="form-group">
+              <label for ="timepicker1"> Time: (Lecture From)</label>
+                    <input id="timepicker1" placeholder="Time" formControlName="online_lecture_start_time" width="" class="form-control"  />
+                    <!-- <div *ngIf="submittedschedule && l.online_lecture_start_time.errors" class="invalid-feedback">
+                      <div *ngIf="l.online_lecture_start_time.errors.required">Time is required</div>
+                  </div> -->
+            </div>
+
+            <div class="form-group">
+              <label for ="timepicker2"> Time: (Lecture Upto) (Optional)</label>
+                    <input id="timepicker2" placeholder="Time" formControlName="online_lecture_end_time" width="" class="form-control" />
+
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="school">School Name</label>
+              <input type="text" formControlName="student_school_name" class="form-control" placeholder="Enter Your School Name" [ngClass]="{ 'is-invalid': submittedregister && l.student_school_name.errors }" />
+              <div *ngIf="submittedregister && l.student_school_name.errors" class="invalid-feedback">
+                  <div *ngIf="l.student_school_name.errors.required">School Name is required</div>
+              </div>
+          </div> -->
+
+
+          <div class="">
+            <label for ="standard">Class :</label>
+            <div class="form-group" style="padding-left: 20px; display: inline-flex;">
+                <label class="container-for-radio">9<sup>th</sup>
+                    <input type="radio" formControlName="student_standard" name="student_standard" value="9" required>
+                    <span class="checkmark"></span>
+                </label>
+                <span style = "margin-left : 10px"></span>
+                <label class="container-for-radio">10<sup>th</sup>
+                    <input type="radio" formControlName="student_standard" name="student_standard" value="10" required>
+                    <span class="checkmark"></span>
+                </label>
+
+                <div *ngIf="submittedschedule && l.student_standard.errors" class="invalid-feedback">
+                  <div *ngIf="l.student_standard.errors.required">Class is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <label for ="standard">Subject :</label>
+            <div class="form-group" style="padding-left: 20px; display: inline-flex;">
+                <label class="container-for-radio">Mathematics
+                    <input type="radio" formControlName="online_lecture_subject" name="online_lecture_subject" value="Mathematics" required>
+                    <span class="checkmark"></span>
+                </label>
+                <span style = "margin-left : 10px"></span>
+                <label class="container-for-radio">Science
+                  <input type="radio" formControlName="online_lecture_subject" name="online_lecture_subject" value="Science" required>
+                  <span class="checkmark"></span>
+              </label>
+
+                <div *ngIf="submittedschedule && l.online_lecture_subject.errors" class="invalid-feedback">
+                  <div *ngIf="l.online_lecture_subject.errors.required">Class is required</div>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+                <label for="fullname">Topic:</label>
+                <input type="text" formControlName="online_lecture_topic" class="form-control" placeholder="Enter Topic Name" [ngClass]="{ 'is-invalid': submittedschedule && l.online_lecture_topic.errors  , 'is-valid': submittedschedule || l.online_lecture_topic.valid}" />
+                <div *ngIf="submittedschedule && l.online_lecture_topic.errors" class="invalid-feedback">
+                    <div *ngIf="l.online_lecture_topic.errors.required">Topic is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="fullname">URL:</label>
+              <input type="text" formControlName="online_lecture_url" class="form-control" placeholder="Paste Youtube link overhere" [ngClass]="{ 'is-invalid': submittedschedule && l.online_lecture_url.errors  , 'is-valid': submittedschedule || l.online_lecture_url.valid}" />
+              <div *ngIf="submittedschedule && l.online_lecture_url.errors" class="invalid-feedback">
+                  <div *ngIf="l.online_lecture_url.errors.required">URL is required</div>
+              </div>
+          </div>
+
+          <div class="text-center">
+            <!-- <button type="submit">Schedule</button> -->
+            <button [disabled]="loadingforschedule" type="submit" class="btn"  style="background-color: lightseagreen; color: white;">
+              <span *ngIf="loadingforschedule" class="spinner-border spinner-border-sm mr-1"></span>
+              {{buttonName}}</button>
+              <button *ngIf="showForm" type="button" (click)="cancelForm();" class="btn"  style="background-color: lightseagreen; color: white; margin-left: 8px;">
+
+                Cancel</button>
+          </div>
+
+
+        </form>
+
+
+        </div>
+
+      </div>
+
+    </div><br/><br/>
+
+
+
+ <div class="col-md-12" [class.show]="!showForm" style="overflow-x: auto;">
+  <button (click)="displayForm();" type="submit" class="btn"  style="background-color: lightseagreen; color: white;">
+    Schedule Lecture</button><br/><br/>
+  <table #productsTable class="table table-striped table-bordered table-sm row-border hover">
+    <thead>
+      <tr>
+        <th>Sr.No</th>
+        <th>Date</th>
+        <th>Time (From)</th>
+        <th>Time (To)</th>
+        <th>Standard</th>
+        <th>Subject</th>
+        <th>Topic</th>
+        <th>URL</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let obj of getAllScheduledLecturesDetailsArray; let i=index">
+           <td class="text-center">{{i+1}}</td>
+           <td class="text-center">{{obj.online_lecture_date}}</td>
+           <td class="text-center">{{obj.online_lecture_start_time}}</td>
+           <td *ngIf="obj.online_lecture_end_time == ''" class="text-center">-</td>
+           <td *ngIf="obj.online_lecture_end_time !== ''" class="text-center">{{obj.online_lecture_end_time}}</td>
+
+           <td class="text-center">{{obj.student_standard}}</td>
+           <td class="text-center">{{obj.online_lecture_subject}}</td>
+           <td class="text-center">{{obj.online_lecture_topic}}</td>
+           <td class="text-center">{{obj.online_lecture_url}}</td>
+           <td class="text-center pointer" (click)="editLectureDetails(obj.lec_id)"><i class="fas fa-pencil-alt"></i></td>
+           <td class="text-center pointer" (click)="deleteLectureDetails(obj.lec_id)"><i class="fas fa-trash-alt"></i></td>
+       </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+    </div>
+  </div>
+  </div>
+
+      <!-- <section class="row text-center placeholders">
+        <div class="col-6 col-sm-3">
+          <div class="panel panel-success">
+            <div class="panel-heading">Header</div>
+            <div class="panel-body">
+              <h4>123</h4>
+              <p>Data</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div class="panel panel-success">
+            <div class="panel-heading">Header</div>
+            <div class="panel-body">
+              <h4>123</h4>
+              <p>Data</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div class="panel panel-warning">
+            <div class="panel-heading">Header</div>
+            <div class="panel-body">
+              <h4>123</h4>
+              <p>Data</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div class="panel panel-danger">
+            <div class="panel-heading">Header</div>
+            <div class="panel-body">
+              <h4>123</h4>
+              <p>Data</p>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+
+
+
+
+<!--
+<div class="container-fluid">
+  <div class="row">
+    <div class="sidebar collapse" id="sidebar">
+      <div class="list-group">
+        <a routerLink="/admin/admin-dashboard" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Dashboard</a>
+
+        <a routerLink= "/admin/admin-dashboard/online-lecture" class="list-group-item active"><span class="fa fa-fw fa-dashboard"></span> Schedule Live Lecture</a>
+        <a routerLink="/admin/admin-login" (click)="logout();" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Logout</a> -->
+        <!-- <a href="#" class="list-group-item collapsed" data-target="#submenu1" data-toggle="collapse" data-parent="#sidebar"><span class="fa fa-fw fa-dashboard"></span> Categories<span class="caret arrow"></span></a>
+          <div class="list-group collapse" id="submenu1">
+            <a href="#" class="list-group-item">Category</a>
+            <a href="#" class="list-group-item">Category</a>
+          </div>
+        <a href="#" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Users <span class="badge badge-dark badge-pill pull-right">14</span></a>
+        <a href="#" class="list-group-item"><span class="fa fa-fw fa-dashboard"></span> Orders <span class="badge badge-dark badge-pill pull-right">14</span></a> -->
+      <!-- </div>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
+      <h1 class="page-header">Schedule Live Lecture</h1>
+<hr/> -->
+
+
+ <!-- End register Section -->

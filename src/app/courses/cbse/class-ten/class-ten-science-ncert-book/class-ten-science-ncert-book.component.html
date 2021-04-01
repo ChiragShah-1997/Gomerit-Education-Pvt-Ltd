@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb" class="bread-nav">
+  <ol class="breadcrumb breadcrumb-style">
+      <li class="breadcrumb-item"><a routerLink="/" (click)="us.toggleSectionsVisibility()">Home</a></li>
+      <li class="breadcrumb-item">Courses</li>
+      <li class="breadcrumb-item"><a routerLink="/courses/cbse/class-ten" >Class 10</a></li>
+      <li class="breadcrumb-item"><a routerLink="/courses/cbse/class-ten/class-ten-study-materials">Study Materials</a></li>
+      <li class="breadcrumb-item">Class 10 Science NCERT Book</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>NCERT Book for Class 10 Science  - View all chapters in PDF</h1>
+  <img class="img-responsive" src="../../../../../assets/img/class_10_ncert_science.jpg"><br/><br/>
+   <p><strong>Links to view all the chapters of Class 10 Science NCERT Book are provided below:</strong></p>
+
+  <p><strong>Chapter 1: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-1.pdf')">Chemical Reactions and Equations</a></strong></p>
+  <p><strong>Chapter 2: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-2.pdf')">Acid, Base and Salt</a></strong></p>
+  <p><strong>Chapter 3: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-3.pdf')">Metals and Non-Metals</a></strong></p>
+  <p><strong>Chapter 4: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-4.pdf')">Carbon and Its Compounds</a></strong></p>
+  <p><strong>Chapter 5: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-5.pdf')">Periodic Classification of Elements</a></strong></p>
+  <p><strong>Chapter 6: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-6.pdf')">Life Processes</a></strong></p>
+  <p><strong>Chapter 7: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-7.pdf')">Control and Coordination</a></strong></p>
+  <p><strong>Chapter 8: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-8.pdf')">How Do Organisms Reproduce</a></strong></p>
+  <p><strong>Chapter 9: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-9.pdf')">Heredity and Evolution</a></strong></p>
+  <p><strong>Chapter 10: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-10.pdf')">Light - Reflection and Refraction</a></strong></p>
+  <p><strong>Chapter 11: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-11.pdf')">The Human Eye and the Colourful World</a></strong></p>
+  <p><strong>Chapter 12: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-12.pdf')">Electricity</a></strong></p>
+  <p><strong>Chapter 13: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-13.pdf')">Magnetic Effects of Electric Current</a></strong></p>
+  <p><strong>Chapter 14: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-14.pdf')">Sources of Energy</a></strong></p>
+  <p><strong>Chapter 15: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-15.pdf')">Our Environment</a></strong></p>
+  <p><strong>Chapter 16: <a (click)="openPdf('../../../../../assets/pdfjs/class-10/science/ncert_book/ncert-class-10-science-chapter-16.pdf')">Management of Natural Resources</a></strong></p>
+
+
+  <div id="viewer" style="height:120vh; width:100%;" [hidden]="!isPdfLoaded && !ifanotherlinkclicked" style="height: 85vh;">
+    <ng2-pdfjs-viewer #externalPdfViewer [print]='false' [download]='false' [openFile]='false' [viewBookmark]='false' [externalWindow]='false' [startPrint]='false'></ng2-pdfjs-viewer>
+  </div>
+
+  </div>

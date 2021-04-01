@@ -1,0 +1,1343 @@
+
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+       <i class="icofont-phone"></i><a href="tel:9096367146"><span class="phone"><b style="color:white;">9096367146</b></span></a>
+          <i class="icofont-envelope"></i><a href="mailto:info@gomerit.in"><b style="color:white;">info@gomerit.in</b></a>
+      </div>
+      <div class="social-links float-right">
+       <nav class="nav-menu float-right d-none d-lg-block reglog">
+        <ul>
+          <ng-container *ngIf="outside; else internalRouteRegister">
+            <li *ngIf="us.sessionExist()==false"><a [routerLink]="['/']" (click)="scrollTo('contact')">Register</a></li>
+          </ng-container>
+
+          <ng-template #internalRouteRegister>
+            <li *ngIf="us.sessionExist()==false" class="active"><a href="#contact">Register <i class="la la-angle-down"></i></a></li>
+          </ng-template>
+
+          <li *ngIf="us.sessionExist()==false"><a href="#myModal" data-toggle="modal">Login</a></li>
+          <li *ngIf="us.sessionExist()==true"> <a [routerLink]="['/']" (click)="logout();">Logout</a></li>
+          </ul>
+          </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- <h1 class="text-light"><a href="index.html"><span>GoMerit</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a [routerLink]="['/']" (click)="us.toggleSectionsVisibility();"><img class="img-logo img-responsive" src="../../assets/img/logo.png"  style="top: 0.5px; left:25px;"></a>
+
+      </div>
+
+      <nav id="nav-bar" class="nav-menu float-right d-lg-block">
+        <button id="bar" type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>
+        <div class="mobile-nav-overly"></div>
+        <ul id="ul">
+
+          <ng-container *ngIf="outside; else internalRouteHeader">
+            <li><a [routerLink]="['/']" (click)="scrollTo('header')">Home</a></li>
+          </ng-container>
+
+          <ng-template #internalRouteHeader>
+            <li class="active"><a href="#header">Home</a></li>
+          </ng-template>
+
+          <ng-container *ngIf="outside; else internalRouteAboutUs">
+           <li><a [routerLink]="['/']" (click)="scrollTo('about')">About Us</a></li>
+          </ng-container>
+
+          <ng-template #internalRouteAboutUs>
+            <li><a href="#about">About Us</a></li>
+          </ng-template>
+
+
+          <li class="drop-down" routerLinkActive="active"><a routerLinkActive="router-link-active">Courses Offered</a>
+            <ul class="ul1">
+              <li class="drop-down" routerLinkActive="active"><a>CBSE</a>
+                <ul class="ul2">
+                  <li class="one" routerLinkActive="active"><a [routerLink]="['/courses/cbse/class-nine']"  (click)="toggleFlag();" >Class 9</a></li>
+                  <li class="two" routerLinkActive="active"><a [routerLink]="['/courses/cbse/class-ten']"  (click)="toggleFlag()">Class 10</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </li>
+           <li><a href="#admissionprocessmodal" data-toggle="modal">Admission process</a></li>
+           <ng-container *ngIf="outside; else internalRouteGallery">
+            <li><a [routerLink]="['/']" (click)="scrollTo('gallery')">Gallery</a></li>
+           </ng-container>
+
+           <ng-template #internalRouteGallery>
+             <li><a href="#gallery">Gallery</a></li>
+           </ng-template>
+
+           <!-- <li><a href="#gallery" routerLink="/" (click)="scrollTo('gallery2')">Gallery</a></li> -->
+
+           <ng-container *ngIf="outside; else internalRouteFAQ">
+            <li><a [routerLink]="['/']" (click)="scrollTo('faq')">FAQ</a></li>
+           </ng-container>
+
+           <ng-template #internalRouteFAQ>
+            <li><a href="#faq">FAQ</a></li>
+           </ng-template>
+
+           <!-- <li><a href="#faq">Blog</a></li> -->
+
+           <ng-container *ngIf="outside; else internalRouteContactUs">
+            <li routerLinkActive="active"><a [routerLink]="['/contact-us']"  (click)="toggleFlag();">Contact Us</a></li>
+           </ng-container>
+
+           <ng-template #internalRouteContactUs>
+            <li  routerLinkActive="active"><a [routerLink]="['/contact-us']" (click)="toggleFlag();">Contact Us</a></li>
+           </ng-template>
+
+
+
+          <li><a href="#downloadsmodal" data-toggle="modal">Downloads</a></li>
+          <li *ngIf="us.sessionExist() == false" id="register" style="display: none;"><a href="#contact">Register <i class="la la-angle-down"></i></a></li>
+          <li *ngIf="us.sessionExist() == false" id="login" style="display: none;"><a href="#myModal" data-toggle="modal">Login</a></li>
+          <li *ngIf="us.sessionExist()==true" id="logout" style="display: none;"><a [routerLink]="['/']" (click)="logout();">Logout</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+  <body>
+
+  <router-outlet></router-outlet>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url('assets/img/cover-2.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animated fadeInDown">Welcome to <span>GoMerit</span></h2>
+                <p class="animated fadeInUp"></p>
+  <!--                <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>-->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item animated" style="background-image: url('../../assets/img/students_pics/P_20160211_154105.jpg');">
+
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url('../../assets/img/students_pics/P_20160211_154422.jpg');">
+
+          </div>
+
+           <!-- Slide 4 -->
+           <div class="carousel-item" style="background-image: url('../../assets/img/students_pics/P_20160320_165101_BF_1.jpg');">
+
+          </div>
+
+           <!-- Slide 5 -->
+           <div class="carousel-item" style="background-image: url('../../assets/img/students_pics/Group_Photo_6.jpeg');">
+            <!-- <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animated fadeInDown">Notes and many More Online</h2>
+                <p class="animated fadeInUp"></p> -->
+  <!--                <a href="#about" class="btn-get-started animated fadeInUp scrollto">Read More</a>-->
+              <!-- </div>
+            </div> -->
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+  <section style="margin-bottom: -45px;margin-top: -50px;" id="livelec">
+  <div id="slidebox">
+    <div class="col-md-12"  style="float: left;">
+      <div class="col-md-2"  style="float: left;">
+    <div class="fac-img">
+      <span class="mn-butterfly"></span>
+      <img id="teacherImage"alt="Ashish Patrick Sir" src="../../assets/img/students_pics/Ashish_Patrick.jpeg">
+  </div>
+  <div class="name ng-binding" id="teacherName">Ashish Patrick</div>
+                                    <div class="sub ng-binding" id="faculty">(Subject Expert)</div>
+                                  </div>
+                                  <div class="col-md-4" style="float: left;">
+                                    <div class="col-md-4"><h4 id="className" class="ng-binding">Class - 9</h4></div>
+
+  <div class="live-card">
+    <div class="live-card-wrap">
+        <div class="inner-wrap">
+            <a class="white-top" href="">
+                <div class="live-logo">
+                    <i class="mn-butterfly"></i>
+                    <span class="text-uppercase blink_live">live</span>
+                </div>
+                <div class="text-right">
+                    <button class="btn-class ng-binding">Mathematics</button>
+                </div>
+                <!-- <h4 id="className" class="ng-binding">Class - 9 Maths (Solvin...</h4> -->
+                <div class="d-flex">
+                    <!-- <div class="fac-img">
+                        <span class="mn-butterfly"></span>
+                        <img id="teacherImage"alt="Ashish Patrick Sir" src="../../assets/img/students_pics/Ashish_Patrick.jpeg">
+                    </div> -->
+                    <div class="fac-info">
+                        <div class="d-flex justify-content-between">
+                            <!-- <div class="top">
+                                <div>
+                                    <div class="name ng-binding" id="teacherName">Ashish Patrick</div>
+                                    <div class="sub ng-binding" id="faculty">Math Faculty</div>
+                                </div>
+                            </div> -->
+                            <div class="bottom">
+                            <div ng-if="!card.isClassToday &amp;&amp; card.isUpComingClass &amp;&amp; !card.isRunningClass " class="ng-scope">
+                                    <div class="stext text-uppercase ng-binding">Fri, 21 Aug, 2020</div>
+                                    <div class="stime ng-binding">1:30 PM</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="enrol-box">
+                    <div class="enrol-count">
+
+                    </div>
+
+                </div>
+            </a>
+
+            <div class="shareBox">
+
+              <div class="d-flex align-item-center justify-content-end">
+
+               <button ng-if="card.isRunningClass" class="btn-intrest ng-scope" ng-click="enterClass(card)" id="btn-0">Enter Class</button><!-- end ngIf: card.isRunningClass -->
+
+
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+                                  </div>
+                                  <div class="col-md-4"  style="float: left;">
+                                    <div class="col-md-4"><h4 id="className" class="ng-binding">Class - 10</h4></div>
+
+  <div class="live-card">
+    <div class="live-card-wrap">
+        <div class="inner-wrap">
+            <a class="white-top" href="">
+                <div class="live-logo">
+                    <i class="mn-butterfly"></i>
+                    <span class="text-uppercase blink_live">live</span>
+
+                </div>
+
+
+
+                <div class="text-right">
+                    <button class="btn-class ng-binding">Mathematics</button>
+                </div>
+
+                <div class="d-flex">
+                    <!-- <div class="fac-img">
+                        <span class="mn-butterfly"></span>
+                        <img id="teacherImage"alt="Ashish Patrick Sir" src="../../assets/img/students_pics/Ashish_Patrick.jpeg">
+                    </div> -->
+                    <div class="fac-info">
+                        <div class="d-flex justify-content-between">
+                            <!-- <div class="top">
+                                <div>
+                                    <div class="name ng-binding" id="teacherName">Ashish Patrick</div>
+                                    <div class="sub ng-binding" id="faculty">Math Faculty</div>
+                                </div>
+                            </div> -->
+                            <div class="bottom">
+                            <div ng-if="!card.isClassToday &amp;&amp; card.isUpComingClass &amp;&amp; !card.isRunningClass " class="ng-scope">
+                                    <div class="stext text-uppercase ng-binding">Fri, 21 Aug, 2020</div>
+                                    <div class="stime ng-binding">1:30 PM</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="enrol-box">
+                    <div class="enrol-count">
+
+                    </div>
+
+                </div>
+            </a>
+
+            <div class="shareBox">
+
+              <div class="d-flex align-item-center justify-content-end">
+
+               <button ng-if="card.isRunningClass" class="btn-intrest ng-scope" ng-click="enterClass(card)" id="btn-0">Enter Class</button><!-- end ngIf: card.isRunningClass -->
+
+
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+                                  </div>
+                                  </div>
+
+
+
+  <!-- <marquee onmouseover="this.stop();" onmouseout="this.start()">Live Lecture Scheduled On 19-08-2020 Topic: Electricity</marquee> -->
+
+  <!--end of code for like box-->
+  </div>
+
+
+
+
+  </section>
+    <!-- ======= About Us Section ======= -->
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="assets/img/logo.jpg" class="img-fluid" style="height: auto;" alt="Gomerit Classes Logo">
+            <a href="https://vimeo.com/446148398" class="venobox play-btn mb-4" data-vbtype="video"></a>
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+            <div class="section-title">
+              <h2>About GoMerit Education</h2>
+              <p style="text-align: justify;">GoMerit Education was established as an open and nonprofit resource for education system. It was put together by small group of educators and now the whole management runs under Ashish Patrick sir.</p>
+              <p style="text-align: justify;">Our aim is to provide a space for students to explore education, learn social action and in particularly the theory and practice of informal education, community learning and development and lifelong learning.</p>
+              <p style="text-align: justify;">As the New generation is well equipped with technologies we try to connect with them on their level for their better understanding. We have researched on this method of education and realized this helps in long term learning and making career of students.</p>
+              <p style="text-align: justify;">It’s an old saying “You can’t build a great building on a weak foundation. You must have a solid foundation if you’re going to have a strong superstructure”. Gordon B. Hinckley</p>
+              <p style="text-align: justify;">We concentrate on interactive sessions where children don’t get bored but instead take interest in topics. Our lecture includes visuals and videos which help students to memories and remember the topics. The optic nerves are the thickest nerve in human body that is the reason visuals are important while we teach the students.</p>
+            </div>
+
+            <!-- <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            </div> -->
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- End About Us Section -->
+
+
+   <!-- ======= Mission Section ======= -->
+
+   <section id="mission" class="team">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title">
+            <h2>Our Mission</h2>
+            <p style="text-align: justify; font-style: italic; color: #666;">Our mission is making education fun, easy and accessible Courses accommodated with complete study package along with short, fun and easy to understand videos. We help students to easily understand and master the subject and achieve their goals with flying colors.
+            </p>
+          </div>
+          <div class="row">
+
+            <div class="col-md-12 col-md-offset-1" style="text-align: center;">
+                      <div class="row row-centered">
+                          <div class="col-md-4">
+                              <div class="col-centered">
+                                  <!-- <div class="circle card-header0">
+                                      <p style="font-style: italic;">
+                                          Video lectures for better grades
+                                      </p>
+                                  </div> -->
+                                  <br/>
+                                  <img src="../../assets/img/video_lecture_logo.jpg" width="40%" height="40%" style="border-radius: 15px;">
+
+                              </div>
+                              <strong style="text-align: justify; font-style: italic; color: #666;">Video lectures for better grades</strong>
+                              <p style="text-align: justify; font-style: italic; color: #666;" class="aboutus_helping">
+                                  Videos are fun fast and easy way for students
+                                  to crack exams and understand concept better.
+                              </p>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="col-centered">
+                                  <!-- <div class="triangle2 card-header1">
+                                      <p style="font-style: italic;">Advantage of old method</p>
+                                  </div> -->
+                                  <br/>
+                                  <img src="../../assets/img/smart_board_logo.png" width="33%" height="33%" style="border-radius: 15px;">
+
+                              </div>
+                              <strong style="text-align: justify; font-style: italic; color: #666;">Advantage of old method</strong>
+                              <p style="text-align: justify; font-style: italic; color: #666;" class="aboutus_helping">
+                                  White board and colorful marker method for slow and deeper understanding.
+                              </p>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="col-centered">
+                                  <!-- <div class="triangle3 card-header2">
+                                      <p style="font-style: italic;">
+                                          Assignments
+                                      </p>
+                                  </div> -->
+                                  <br/>
+                                  <img src="../../assets/img/assignment-logo.jpg" width="30%" height="30%" style="border-radius: 15px;">
+
+                              </div>
+                              <strong style="text-align: justify; font-style: italic; color: #666;">Assignments</strong>
+                              <p style="text-align: justify; font-style: italic; color: #666;" class="aboutus_helping">
+                                  With assignments totally based on CBSE/NCERT pattern helps student to gain thorough knowledge of how
+                                  exam comes.
+                              </p>
+                          </div>
+
+                      </div>
+
+          </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-12" style="text-align: center;">
+          <div class="row row-centered">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+              <div class="col-centered">
+                  <!-- <div class="triangle4">
+                      <p style="font-style: italic;">
+                        Old and new technology mixed culture
+                      </p>
+                  </div> -->
+                  <br/>
+                                  <img src="../../assets/img/lecture_logo.png" width="40%" height="40%" style="border-radius: 15px;">
+
+              </div>
+              <strong style="text-align: justify; font-style: italic; color: #666;">Old and new technology mixed culture</strong>
+              <p style="text-align: justify; font-style: italic; color: #666;" class="aboutus_helping">
+                New technology like videos animations video test assessment along with the advantages of old whiteboard and marker method helps students to understand and grasp concept more firmly.
+              </p>
+          </div>
+          <div class="col-md-4">
+              <div class="col-centered">
+                  <!-- <div class="triangle5 card-header1">
+                      <p style="font-style: italic;">
+                        Student improvement
+                    </p>
+                  </div> -->
+                  <br/>
+                  <img src="../../assets/img/student_improvement_logo.png" width="22%" height="22%" style="border-radius: 15px;">
+
+              </div>
+              <strong style="text-align: justify; font-style: italic; color: #666;">Student improvement</strong>
+              <p style="text-align: justify; font-style: italic; color: #666;" class="aboutus_helping">
+                Students have started saying how they like combination of videos and orthodox teaching method in class. Results of student have drastically improved.
+
+              </p>
+          </div>
+          </div>
+        </div>
+          </div></div>
+  </section>
+  <!-- End Mission Section -->
+
+  <main id="main">
+
+     <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Popular courses</h2>
+          <p>We provide the following courses.</p><br/>
+        </div>
+
+        <div class="row">
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <a [routerLink]="['/courses/cbse/class-nine/class-nine-mathematics']">
+            <div class="member">
+              <div class="pic"><img src="../../assets/img/9th_maths_logo.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>CBSE class 9<sup>th</sup></h4>
+                <span style="font-weight: bold;">Maths</span>
+              </div>
+            </div>
+          </a>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <a [routerLink]="['/courses/cbse/class-nine/class-nine-science']">
+            <div class="member">
+              <div class="pic"><img src="../../assets/img/9th_science_logo.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>CBSE class 9<sup>th</sup></h4>
+                <span style="font-weight: bold;">Science</span>
+              </div>
+            </div>
+          </a>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <a [routerLink]="['/courses/cbse/class-ten/class-ten-mathematics']">
+            <div class="member">
+              <div class="pic"><img src="../../assets/img/10th_maths_logo.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>CBSE class 10<sup>th</sup></h4>
+                <span style="font-weight: bold;">Maths</span>
+              </div>
+            </div>
+          </a>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <a [routerLink]="['/courses/cbse/class-ten/class-ten-science']">
+            <div class="member">
+              <div class="pic"><img src="../../assets/img/10th_science_logo.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>CBSE class 10<sup>th</sup></h4>
+                <span style="font-weight: bold;">Science</span>
+  <!--
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+  -->
+              </div>
+            </div>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Our Team Section -->
+
+     <!-- ======= Register Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 style="color:black;">Register Now</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300" style="float: none; margin: 0 auto;">
+            <!-- <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Full Name" data-rule="minlen:4" data-rule="" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                </div>
+              <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Gender" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                </div>
+                <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Date of Birth" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="School" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                </div>
+                 <div class="form-row">
+                <div class="col-lg-12 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Mobile (WhatsApp No.)" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group" id="gallery2">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Address" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your request has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Register Now</button></div>
+            </form> -->
+
+
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="php-email-form">
+              <div class="form-group">
+                  <label for="fullname">Your Full Name</label>
+                  <input type="text" formControlName="student_name" class="form-control" placeholder="Enter Your Full Name" [ngClass]="{ 'is-invalid': submittedregister && l.student_name.errors  , 'is-valid': submittedregister || l.student_name.valid}" />
+                  <div *ngIf="submittedregister && l.student_name.errors" class="invalid-feedback">
+                      <div *ngIf="l.student_name.errors.required">Name is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" formControlName="student_email_id"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control" placeholder="Enter Your Email Address" [ngClass]="{ 'is-invalid': submittedregister && l.student_email_id.errors ,'is-valid': submittedregister || l.student_email_id.valid }" />
+                  <div *ngIf="submittedregister &&  l.student_email_id?.errors" class="invalid-feedback">
+                    <div  *ngIf="l.student_email_id.errors && l.student_email_id.errors.required">
+                      Email is required
+                  </div>
+                  <div  *ngIf="l.student_email_id.errors && l.student_email_id.errors.pattern">
+                      Email is invalid
+                  </div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mobile">Mobile No. (WhatsApp Enabled)</label>
+                <input type="text" (keypress)="numberOnly($event)" pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength = "10" class="form-control"  placeholder="Enter Your 10 Digit Mobile No." formControlName = "student_mobile" [ngClass]="{ 'is-invalid': submittedregister && l.student_mobile.errors , 'is-valid': submittedregister || l.student_mobile.valid }" required />
+                <div *ngIf="submittedregister && l.student_mobile.errors" class="invalid-feedback">
+                    <div *ngIf="l.student_mobile.errors.required">Mobile No. is required</div>
+                    <div  *ngIf="l.student_mobile.errors  && l.student_mobile.errors.minlength || (l.student_mobile.errors.pattern)">
+                      Mobile No. is invalid
+                  </div>
+                </div>
+            </div>
+
+
+              <div class="form-group">
+                <label for ="gender">Gender :</label>
+                <div class="form-group" style="padding-left: 20px; display: inline-flex;">
+                    <label class="container-for-radio">Male
+                        <input type="radio" formControlName="student_gender" name="student_gender" value="Male" required />
+                        <span class="checkmark"></span>
+                    </label>
+                    <span style = "margin-left : 10px"></span>
+                    <label class="container-for-radio">Female
+                        <input type="radio" formControlName="student_gender" name="student_gender" value="Female" required />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+
+              </div>
+
+
+              <div class="form-group" style="margin-top: -25px;">
+                <label for ="datepicker">Date Of Birth</label>
+                      <input id="datepicker" placeholder="Your DOB" formControlName="student_date_of_birth" name="dob" width="" class="form-control" />
+
+              </div>
+
+              <div class="form-group">
+                <label for="school">School Name</label>
+                <input type="text" formControlName="student_school_name" class="form-control" placeholder="Enter Your School Name" [ngClass]="{ 'is-invalid': submittedregister && l.student_school_name.errors }" />
+                <div *ngIf="submittedregister && l.student_school_name.errors" class="invalid-feedback">
+                    <div *ngIf="l.student_school_name.errors.required">School Name is required</div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for ="standard">Standard :</label>
+              <div class="form-group" style="padding-left: 20px; display: inline-flex;">
+                  <label class="container-for-radio">9<sup>th</sup>
+                      <input type="radio" formControlName="student_standard" name="student_standard" value="9" required>
+                      <span class="checkmark"></span>
+                  </label>
+                  <span style = "margin-left : 10px"></span>
+                  <label class="container-for-radio">10<sup>th</sup>
+                      <input type="radio" formControlName="student_standard" name="student_standard" value="10" required>
+                      <span class="checkmark"></span>
+                  </label>
+
+                  <div *ngIf="submittedregister && l.student_standard.errors" class="invalid-feedback">
+                    <div *ngIf="l.student_standard.errors.required">Standard is required</div>
+                </div>
+              </div>
+            </div>
+
+
+              <div class="form-group" style="margin-top: -25px;">
+                <label for="address">Your Residential Address</label>
+                <textarea class="form-control" formControlName="student_address" placeholder="Address..." [ngClass]="{ 'is-invalid': submittedregister && l.student_address.errors }"></textarea>
+                <div *ngIf="submittedregister && l.student_address.errors" class="invalid-feedback">
+                    <div *ngIf="l.student_address.errors.required">Your Address is required</div>
+                </div>
+            </div>
+
+            <!-- <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your request has been sent. Thank you!</div>
+            </div> -->
+            <div class="text-center"><button type="submit">Register Now</button></div>
+
+
+          </form>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End register Section -->
+
+
+
+
+    <!-- ======= About Lists Section ======= -->
+  <!--
+    <section class="about-lists">
+      <div class="container">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
+            <span>01</span>
+            <h4>Lorem Ipsum</h4>
+            <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="100">
+            <span>02</span>
+            <h4>Repellat Nihil</h4>
+            <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="200">
+            <span>03</span>
+            <h4> Ad ad velit qui</h4>
+            <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="300">
+            <span>04</span>
+            <h4>Repellendus molestiae</h4>
+            <p>Inventore quo sint a sint rerum. Distinctio blanditiis deserunt quod soluta quod nam mider lando casa</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="400">
+            <span>05</span>
+            <h4>Sapiente Magnam</h4>
+            <p>Vitae dolorem in deleniti ipsum omnis tempore voluptatem. Qui possimus est repellendus est quibusdam</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up" data-aos-delay="500">
+            <span>06</span>
+            <h4>Facilis Impedit</h4>
+            <p>Quis eum numquam veniam ea voluptatibus voluptas. Excepturi aut nostrum repudiandae voluptatibus corporis sequi</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  -->
+    <!-- End About Lists Section -->
+
+    <!-- ======= Counts Section ======= -->
+  <!--
+    <section class="counts section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+            <div class="count-box">
+              <i class="icofont-simple-smile" style="color: #20b38e;"></i>
+              <span data-toggle="counter-up">232</span>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="count-box">
+              <i class="icofont-document-folder" style="color: #c042ff;"></i>
+              <span data-toggle="counter-up">521</span>
+              <p>Projects</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="count-box">
+              <i class="icofont-live-support" style="color: #46d1ff;"></i>
+              <span data-toggle="counter-up">1,463</span>
+              <p>Hours Of Support</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
+            <div class="count-box">
+              <i class="icofont-users-alt-5" style="color: #ffb459;"></i>
+              <span data-toggle="counter-up">15</span>
+              <p>Hard Workers</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  -->
+    <!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+  <!--
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="icofont-computer"></i></div>
+            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
+            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="icofont-earth"></i></div>
+            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="icofont-image"></i></div>
+            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="icofont-settings"></i></div>
+            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="icofont-tasks-alt"></i></div>
+            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  -->
+    <!-- End Services Section -->
+
+    <!-- ======= Our Portfolio Section ======= -->
+    <section id="gallery" class="portfolio section-bg">
+      <div class="container" data-aos="fade-up" data-aos-delay="50">
+
+        <div class="section-title">
+          <h2>Our Gallery</h2>
+          <p></p>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Infrastructure</li>
+              <li data-filter=".filter-card">Professors</li>
+              <li data-filter=".filter-web">Students</li>
+            </ul>
+          </div>
+        </div> -->
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/P_20160211_154105.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/P_20160211_154105.jpg" data-gall="portfolioGallery" class="venobox" title="Students"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/P_20160211_154422.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/P_20160211_154422.jpg" data-gall="portfolioGallery" class="venobox" title="Students"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/P_20160320_165101_BF_1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/P_20160320_165101_BF_1.jpg" data-gall="portfolioGallery" class="venobox" title="Students"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/Group_Photo_3.jpeg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Group Image Of Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/Group_Photo_3.jpeg" data-gall="portfolioGallery" class="venobox" title="Students"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/Group_Photo_5.jpeg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Group Image Of Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/Group_Photo_5.jpeg" data-gall="portfolioGallery" class="venobox" title="Professor"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="../../assets/img/students_pics/Group_Photo_2.jpeg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Group Image Of Students</h4>
+                <!-- <p>Web</p> -->
+                <div class="portfolio-links">
+                  <a href="../../assets/img/students_pics/Group_Photo_2.jpeg" data-gall="portfolioGallery" class="venobox" title="Students"><i class="icofont-eye"></i></a>
+                  <!-- <a href="#" title="More Details"><i class="icofont-external-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <ng-container *ngIf="outside; else externalViewGallery">
+        <a class="view-more" [routerLink]="['/gallery']" (click)="toggleFlag()">
+        View More
+      </a>
+
+      </ng-container>
+
+      <ng-template #externalViewGallery>
+        <a class="view-more" [routerLink]="['/gallery']" (click)="toggleFlag()">
+          View More
+        </a>
+      </ng-template>
+
+
+    </section><!-- End Our Portfolio Section -->
+
+
+  <!-- ======= Testimonials Section ======= -->
+
+    <section class="setTestimonialsHeightInMediaQuery" style="background-color: wheat;">
+      <div class="container">
+        <div class="row">
+        <div class="col-sm-12">
+          <div _ngcontent-oyt-c18="" class="section-title"><h2 _ngcontent-oyt-c18="">Testimonials</h2><p _ngcontent-oyt-c18=""></p></div>
+        <p class="text-center" style="font-size: 17px;line-height: 22px;margin-top: 10px;margin-bottom: 35px;font-style: italic; color: #666;">Why Students love <strong>GoMerit</strong></p>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="testimonials" class="carousel slide" data-ride="carousel">
+              <!-- <ol class="carousel-indicators">
+                <li data-target="#testimonials" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonials" data-slide-to="1"></li>
+                <li data-target="#testimonials" data-slide-to="2"></li>
+                <li data-target="#testimonials" data-slide-to="3"></li>
+              </ol> -->
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <div class="img-box"><img src="../../assets/img/students_pics/Garima Singh.png" alt="Garima Singh"></div>
+                  <p class="testimonial" style="text-align: center; font-style: italic; color: #666;">It has been a wonderful journey with GoMerit classes and Patrick sir. There is dean intension of him to not just dear board examinations but to build up the concepts. He taught me to read NCERT between the lines. His way of teaching, tricks & passionate behavior speaks louder than experience. For me he is a role model and one of the wonderful teachers I have learnt from.</p>
+                  <h4 class="carousal-title">- Garima Singh</h4>
+                  <div class="overview">(Class 10)</div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="img-box"><img src="../../assets/img/students_pics/Tanshiqa Bhandare.png" alt="Tanshiqa Bhandare"></div>
+                  <p class="testimonial" style="text-align: center; font-style: italic; color: #666;">I have been Patrick sir’s student from past 2 years. Sir just not helped to identify my mistakes and helped me to convert it into my strengths. There is a constant support of Patrick sir whole academic year. Sirs notes & tricks to learn NCERT are very easy.
+                  </p>
+                  <h4 class="carousal-title">- Tanshiqa Bhandare</h4>
+                  <div class="overview">(Class 9)</div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="img-box"><img src="../../assets/img/students_pics/Prachi Thombe.png" alt="Prachi Thombe"></div>
+                  <p class="testimonial special-text manageexpandcollapse" style="text-align: center; font-style: italic; color: #666;">I had joined GoMerit classes for two years and it were just fab, learning with all the fun. Prior joining, I had many problems with maths & physics, my bases were weak but sir helped me a lot individually. Yes, he focuses on each one individually. He made my bases string and now I dont face trouble for maths. Sirs notes are just fab we can read it and we are ready for the exams. The tricks are remembering.... I follow them now also thought I am not a part if his classes now. His teaching skills are too good. His motivational lectures really motivate us and are with us forever, build self-confidence within us which is must. And the most important phase of GoMerit classes are the time prior your exams, the way of revision he makes your preparation complete. Thank you, sir for making me what I am today!!
+                  </p>
+                  <button class="expand-button" (click)="ToggleExpandAndCollapse()">
+                    Continue Reading
+                  </button>
+                  <h4 class="carousal-title">- Prachi Thombe</h4>
+                  <div class="overview">(Class 10)</div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="img-box"><img src="../../assets/img/students_pics/Prachi Raut.png" alt="Prachi Raut"></div>
+                  <p class="testimonial" style="text-align: center; font-style: italic; color: #666;">We are very satisfied with his teaching method. I have been studying there from past 2 years. The methods and tricks which he gave, were very useful for us in solving the problems. His method of interaction with the students is the best. Thank you so much sir for teaching is in such a fabulous way.</p>
+                  <h4 class="carousal-title">- Prachi Raut</h4>
+                  <div class="overview">(Class 10)</div>
+                </div>
+
+              </div>
+              <!-- <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#testimonials" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a> -->
+            </div>
+          </div>
+        </div>
+
+          </div>
+
+    </section>
+
+    <!-- End Testimonials Section -->
+
+
+
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+  <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+        <div class="row  d-flex align-items-stretch">
+
+          <div class="tabs">
+            <div class="tab">
+               <input type="checkbox" id="chck1">
+               <label class="tab-label" for="chck1">What is the batch strength ?</label>
+               <div class="tab-content">
+                The size of every batch is maximum 40 or less. And in the lockdown, every individual student having 100% interaction during the lectures or after the class also.
+               </div>
+            </div>
+            <div class="tab">
+               <input type="checkbox" id="chck2">
+               <label class="tab-label" for="chck2">How GoMerit will track the student’s attendance ?</label>
+               <div class="tab-content">
+                GoMerit maintained an automated & updated attendance record and monthly report shared with the parents.
+               </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck3">
+              <label class="tab-label" for="chck3">What is the Fee Structure ?</label>
+              <div class="tab-content">
+                The fee structure details will share at the time of taking admissions of class 9 & class 10. In between some competitive & attractive discounts will be offered at the time of admission also.
+              </div>
+           </div>
+           <div class="tab">
+            <input type="checkbox" id="chck4">
+            <label class="tab-label" for="chck4">Does GoMerit study material sufficiently cover the 100% syllabus of CBSE board and other reference text books ?</label>
+            <div class="tab-content">
+              GoMerit Notes sufficiently cover all the topics/chapters of a particular subject and class. Our notes contain variety of questions ranging from basic to advanced level so that students are exposed to all types of possible questions.
+            </div>
+         </div>
+         <div class="tab">
+          <input type="checkbox" id="chck5">
+          <label class="tab-label" for="chck5"> What is the GoMerit teaching methodology ?</label>
+          <div class="tab-content">
+            GoMerit always followed variety of teaching methodology via Interactive White Board with digital Marker and also using multimedia videos for explaining various concepts.
+          </div>
+       </div>
+       <div class="tab">
+        <input type="checkbox" id="chck6">
+        <label class="tab-label" for="chck6"> What is the commitment of GoMerit for completion 100% syllabus ?</label>
+        <div class="tab-content">
+          The completion of syllabus is the key factor for GoMerit Classes. Every student will definitely improve their study quality if he/she attends all our lectures, appear for all our regular test and thorough understanding of our study material will help him/her to score well.
+        </div>
+     </div>
+     <div class="tab">
+      <input type="checkbox" id="chck7">
+      <label class="tab-label" for="chck7"> How GoMerit assure 100% marks to the students in their exams ?</label>
+      <div class="tab-content">
+        GoMerit ensures that student will definitely improve their score on conducting regular Assessment tests and Mock tests for every chapter and also taking the full syllabus of the subject. That will definitely improve the performance of the students.
+      </div>
+   </div>
+         </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Frequently Asked Questions Section -->
+
+
+
+  </main><!-- End #main -->
+
+   <!-- ======= Footer ======= -->
+   <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Gomerit</h3>
+            <p>
+              Boisar<br><br>
+              <strong>Phone: </strong><a style="color: #fff;" href="tel:9096367146">9096367146</a><br>
+              <strong>Email: </strong> <a  style="color: #fff;" href="mailto:info@gomerit.in">info@gomerit.in</a><br>
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <ng-container *ngIf="outside; else internalRouteHeader2">
+                <li><i class="bx bx-chevron-right"></i><a [routerLink]="['/']" (click)="scrollTo('topbar')">Home</a></li>
+              </ng-container>
+
+              <ng-template #internalRouteHeader2>
+                <li><i class="bx bx-chevron-right"></i><a href="#hero">Home</a></li>
+              </ng-template>
+
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#header">Home</a></li> -->
+              <ng-container *ngIf="outside; else internalRouteAboutUs2">
+                <li><i class="bx bx-chevron-right"></i><a [routerLink]="['/']" (click)="scrollTo('about')">About Us</a></li>
+              </ng-container>
+
+              <ng-template #internalRouteAboutUs2>
+                <li><i class="bx bx-chevron-right"></i><a href="#about">About Us</a></li>
+              </ng-template>
+
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li> -->
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li> -->
+              <li><i class="bx bx-chevron-right"></i> <a [routerLink]="['privacy-policy']" (click)="toggleFlag();">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Courses</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a [routerLink]="['/courses/cbse/class-nine/class-nine-mathematics']">CBSE 9th Mathematics</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a [routerLink]="['/courses/cbse/class-nine/class-nine-science']">CBSE 9th Science</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a [routerLink]="['/courses/cbse/class-ten/class-ten-mathematics']">CBSE 10th Mathematics</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a [routerLink]="['/courses/cbse/class-ten/class-ten-science']">CBSE 10th Science</a></li>
+  <!--              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>-->
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books and much more!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Gomerit</span></strong>. All Rights Reserved
+      </div>
+  <!--
+      <div class="credits">
+
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+  -->
+    </div>
+  </footer><!-- End Footer -->
+
+    <a *ngIf="isShow" (click)="gotoTop()" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+
+  <div id="myModal" class="modal fade text-center">
+    <div class="modal-dialog">
+      <div class="col-lg-8 col-sm-8 col-12 main-section" style="max-width: 350px;">
+        <div class="modal-content">
+          <div class="col-lg-12 col-sm-12 col-12 user-img">
+            <img src="../../assets/img/man.png">
+          </div>
+          <div class="col-lg-12 col-sm-12 col-12 user-name">
+            <h1>Student Login</h1>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          <div class="col-lg-12 col-sm-12 col-12 form-input">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                  </div>
+                <input type="email" formControlName="student_email_id"  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control" [ngClass]="{ 'is-invalid': submittedlogin && f.student_email_id.errors , 'is-valid': submittedlogin || f.student_email_id.valid }"  placeholder="Enter your email" required />
+                <div *ngIf="submittedlogin &&  f.student_email_id?.errors" class="invalid-feedback">
+                  <div  *ngIf="f.student_email_id.errors && f.student_email_id.errors.required">
+                    Email is required
+                </div>
+                <div  *ngIf="f.student_email_id.errors && f.student_email_id.errors.pattern">
+                    Email is invalid
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                  </div>
+                <input type="password" formControlName="student_password" class="form-control" placeholder="Enter your password" [ngClass]="{ 'is-invalid': submittedlogin && f.student_password.errors , 'is-valid': submittedlogin || f.student_password.valid }" data-toggle="password" required />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fa fa-eye-slash" title="Show password"></i>
+                  </span>
+            </div>
+                <!-- <div *ngIf="submittedlogin && f.password?.errors && f.password?.untouched" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div> -->
+                  <div *ngIf="submittedlogin &&  f.student_password.errors" class="invalid-feedback">
+                    <div  *ngIf="f.student_password.errors && f.student_password.errors.required">
+                      Password is required
+                  </div>
+              </div>
+
+              </div>
+              </div>
+              <button [disabled]="loadingforlogin" type="submit" class="btn btn-success">
+                <span *ngIf="loadingforlogin" class="spinner-border spinner-border-sm mr-1"></span>
+                Login</button>
+            </form>
+          </div>
+          <div class="col-lg-12 col-sm-12 col-12 link-part">
+            <ng-container *ngIf="outside; else externalViewForgotPassword">
+              <a [routerLink]="['/forgot-password']" (click)="toggleFlag(); closeModal();">Forgot Password?</a>
+
+            </ng-container>
+
+            <ng-template #externalViewForgotPassword>
+              <a [routerLink]="['/forgot-password']" (click)="toggleFlag(); closeModal();">Forgot Password?</a>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="downloadsmodal" class="modal fade text-center">
+    <div class="modal-dialog">
+      <button type="button" class="close" style="color: #fff; opacity: 1;" data-dismiss="modal">×</button>
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <img src="../../assets/img/Webpage.jpg" style="max-width: 100%; height: 525px;">
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  <div id="admissionprocessmodal" class="modal fade text-center">
+    <div class="modal-dialog">
+      <button type="button" class="close" style="color: #fff; opacity: 1;" data-dismiss="modal">×</button>
+        <div class="modal-content" style="background-color: wheat;">
+          <!-- <img _ngcontent-xwb-c26="" _ngcontent-oee-c26="" src="../../assets/img/logo.png" class="img-logo img-responsive" style="top: 70px;left: 70px;"> -->
+          <div class="modal-body" style="top:12px">
+            <h1 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; color: #22736f;">Admission Process</h1>
+            <img _ngcontent-kvq-c26="" src="../../assets/img/AdmissionProcess.jpg" style="max-width: 100%;margin-top: 25px;">
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </body>

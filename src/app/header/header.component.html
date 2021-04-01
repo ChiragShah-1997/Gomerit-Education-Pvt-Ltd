@@ -1,0 +1,85 @@
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+        <div class="contact-info float-left">
+            <i class="icofont-phone"></i><a href="tel:9096367146"><span class="phone"><b
+                        style="color:white;">9096367146</b></span></a>
+            <i class="icofont-envelope"></i><a href="mailto:info@gomerit.in"><b
+                    style="color:white;">info@gomerit.in</b></a>
+        </div>
+        <div class="social-links float-right">
+            <nav class="nav-menu float-right d-none d-lg-block reglog">
+                <ul>
+                    <li ><a [routerLink]="['/']" fragment="contact">Register</a></li>
+
+                    <li ><a href="#myModal" data-toggle="modal">Login</a></li>
+                    <!-- <li > <a [routerLink]="['/']" (click)="logout();">Logout</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<header id="header">
+    <div class="container">
+  
+      <div class="logo float-left">
+        <!-- <h1 class="text-light"><a href="index.html"><span>GoMerit</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a [routerLink]="['/']" ><img class="img-logo img-responsive" src="../../assets/img/logo.png"  style="top: 0.5px; left:25px;"></a>
+  
+      </div>
+  
+      <nav id="nav-bar" class="nav-menu float-right d-lg-block">
+        <button id="bar" type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>
+        <div class="mobile-nav-overly"></div>
+        <ul id="ul">
+  
+            <li routerLinkActive="active"><a [routerLink]="['/']" fragment="header" (click)="scrollTo('header')">Home</a></li>
+  
+  
+           <li routerLinkActive="active"><a [routerLink]="['/']" fragment="about" (click)="scrollTo('about')">About Us</a></li>
+
+  
+  
+          <li class="drop-down" routerLinkActive="active"><a routerLinkActive="router-link-active">Courses Offered</a>
+            <ul class="ul1">
+              <li class="drop-down" routerLinkActive="active"><a>CBSE</a>
+                <ul class="ul2">
+                  <li class="one" routerLinkActive="active"><a [routerLink]="['/courses/cbse/class-nine']" >Class 9</a></li>
+                  <li class="two" routerLinkActive="active"><a [routerLink]="['/courses/cbse/class-ten']">Class 10</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+           <li><a [routerLink]="['/']" fragment="admissionprocessmodal" data-toggle="modal">Admission process</a></li>
+         
+            <li><a [routerLink]="['/']" fragment="gallery">Gallery</a></li>
+          
+  
+           <!-- <li><a href="#gallery" routerLink="/" (click)="scrollTo('gallery2')">Gallery</a></li> -->
+  
+         
+            <li><a [routerLink]="['/']" fragment="faq">FAQ</a></li>
+          
+           <!-- <li><a href="#faq">Blog</a></li> -->
+  
+           <!-- <ng-container *ngIf="outside; else internalRouteContactUs">
+            <li routerLinkActive="active"><a [routerLink]="['/contact-us']"  (click)="toggleFlag();">Contact Us</a></li>
+           </ng-container>
+  
+           <ng-template #internalRouteContactUs>
+            <li  routerLinkActive="active"><a [routerLink]="['/contact-us']" (click)="toggleFlag();">Contact Us</a></li>
+           </ng-template> -->
+  
+  
+  
+          <li><a href="#downloadsmodal" data-toggle="modal">Downloads</a></li>
+          <li *ngIf="us.sessionExist() == false" id="register" style="display: none;"><a href="#contact">Register <i class="la la-angle-down"></i></a></li>
+          <li *ngIf="us.sessionExist() == false" id="login" style="display: none;"><a href="#myModal" data-toggle="modal">Login</a></li>
+          <li *ngIf="us.sessionExist()==true" id="logout" style="display: none;"><a [routerLink]="['/']" (click)="logout();">Logout</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+  
+    </div>
+  </header>

@@ -1,0 +1,508 @@
+.buttonizer.buttonizer-style-default .buttonizer-button-list {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.buttonizer.buttonizer-style-default .buttonizer-button-list .buttonizer-button {
+  position: absolute;
+  left: 9px;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (min-width:770px) {
+  .buttonizer.buttonizer-style-default.top.right .buttonizer-button-list .buttonizer-button {
+    top: 9px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+
+@media screen and (max-width:769px) {
+  .buttonizer.buttonizer-style-default.top.right .buttonizer-button-list .buttonizer-button {
+    top: 9px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-1 {
+    top: 70px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-2 {
+    top: 120px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-3 {
+    top: 170px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-4 {
+    top: 220px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-5 {
+    top: 270px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-6 {
+    top: 320px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.right.opened .buttonizer-button-list .buttonizer-button.button-mobile-7 {
+    top: 370px;
+  }
+}
+
+@media screen and (min-width:770px) {
+  .buttonizer.buttonizer-style-default.top.left .buttonizer-button-list .buttonizer-button {
+    top: 9px;
+  }
+
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-1 {
+    top: 70px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-2 {
+    top: 120px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-3 {
+    top: 170px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-4 {
+    top: 220px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-5 {
+    top: 270px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-6 {
+    top: 320px;
+  }
+
+  .buttonizer.buttonizer-style-default.top.left.opened .buttonizer-button-list .buttonizer-button.button-desktop-7 {
+    top: 370px;
+  }
+}
+
+.buttonizer.buttonizer-style-faded .buttonizer-button-list .buttonizer-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in;
+  -moz-transition: all 300ms ease-in;
+  -webkit-transition: all 300ms ease-in;
+  -o-transition: all 300ms ease-in;
+}
+
+.buttonizer {
+  position: fixed;
+  z-index: 99999;
+  transition: ease-in-out 250ms;
+}
+
+.buttonizer .buttonizer-button {
+  display: block;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  max-width: none!important;
+  color: #fff;
+  background: #48a4dc;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  text-align: center;
+  text-decoration: none;
+  margin-top: 5px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.buttonizer .buttonizer-button:hover {
+  box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);
+}
+
+.buttonizer .buttonizer-button i,.buttonizer .buttonizer-button img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+
+.buttonizer .buttonizer-button .buttonizer-label {
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  color: #fff;
+  background: #4e4c4c;
+  font-size: 12px;
+  white-space: nowrap;
+  padding: 5px 15px;
+  height: auto!important;
+  line-height: initial;
+  transition: all .1s ease-out;
+  -moz-transition: all .1s ease-out;
+  -webkit-transition: all .1s ease-out;
+  -o-transition: all .1s ease-out;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.buttonizer .buttonizer-button .buttonizer-label.buttonizer-label-popup {
+  right: -7px!important;
+  pointer-events: none;
+  padding: 5px 6px;
+  animation: fadeOut 1.5s linear 1 normal forwards;
+  -moz-animation: fadeOut 1.5s linear 1 normal forwards;
+  -o-animation: fadeOut 1.5s linear 1 normal forwards;
+  -webkit-animation: fadeOut 1.5s linear 1 normal forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: .6;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.buttonizer .buttonizer-button.buttonizer-head {
+  z-index: 9999;
+}
+
+.buttonizer .buttonizer-button.buttonizer-head .buttonizer-label {
+  transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.buttonizer .buttonizer-button.buttonizer-head i,.buttonizer .buttonizer-button.buttonizer-head svg,.buttonizer .buttonizer-button.buttonizer-head img {
+  display: inline-block;
+  font-style: normal;
+  text-align: center;
+  transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+}
+
+.buttonizer.opened .buttonizer-button.buttonizer-head .buttonizer-label {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+}
+
+.buttonizer.opened .buttonizer-button.buttonizer-head i,.buttonizer.opened .buttonizer-button.buttonizer-head svg,.buttonizer.opened .buttonizer-button.buttonizer-head img {
+  -webkit-transform: translate(-50%,-50%) rotate(45deg);
+  -moz-transform: translate(-50%,-50%) rotate(45deg);
+  -o-transform: translate(-50%,-50%) rotate(45deg);
+  -ms-transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.buttonizer.buttonizer-hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0,50px);
+}
+
+@media screen and (min-width:770px) {
+  .buttonizer .buttonizer-button.label-desktop-hidden .buttonizer-label {
+    display: none;
+  }
+
+  .buttonizer .buttonizer-button.show-label-desktop-hover .buttonizer-label {
+    opacity: 0;
+    visibility: hidden;
+    margin-right: -4px;
+  }
+
+  .buttonizer .buttonizer-button.show-label-desktop-hover:hover .buttonizer-label {
+    opacity: 1;
+    visibility: visible;
+    margin-right: 0;
+  }
+
+  .buttonizer .buttonizer-button.show-label-desktop-hover:hover .buttonizer-label:hover {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  .buttonizer .buttonizer-button.button-hide-desktop {
+    display: none;
+  }
+
+  .buttonizer.buttonizer-desktop-has-1 .buttonizer-button-list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-desktop-has-1 .buttonizer-button.button-desktop-1 {
+    width: 56px;
+    height: 56px;
+    left: 0!important;
+    bottom: 0!important;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .buttonizer.buttonizer-desktop-has-1 .buttonizer-head {
+    opacity: 0;
+    overflow: hidden;
+    z-index: -11;
+  }
+
+  .buttonizer.buttonizer-desktop-has-0 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .buttonizer .buttonizer-button.label-mobile-hidden .buttonizer-label {
+    display: none;
+  }
+
+  .buttonizer .buttonizer-button.show-label-mobile-hover .buttonizer-label {
+    opacity: 0;
+    visibility: hidden;
+    margin-right: -4px;
+  }
+
+  .buttonizer .buttonizer-button.show-label-mobile-hover:hover .buttonizer-label {
+    opacity: 1;
+    visibility: visible;
+    margin-right: 0;
+  }
+
+  .buttonizer .buttonizer-button.show-label-mobile-hover:hover .buttonizer-label:hover {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  .buttonizer .buttonizer-button.button-hide-mobile {
+    display: none;
+  }
+
+  .buttonizer.buttonizer-mobile-has-1 .buttonizer-button-list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .buttonizer.buttonizer-mobile-has-1 .buttonizer-button.button-mobile-1 {
+    width: 56px;
+    height: 56px;
+    left: 0!important;
+    bottom: 0!important;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .buttonizer.buttonizer-mobile-has-1 .buttonizer-head {
+    opacity: 0;
+    overflow: hidden;
+    z-index: -11;
+  }
+
+  .buttonizer.buttonizer-mobile-has-0 {
+    display: none;
+  }
+}
+
+.buttonizer.right .buttonizer-button .buttonizer-label {
+  right: 55px;
+  text-align: right;
+}
+
+.buttonizer.right .buttonizer-button.buttonizer-head .buttonizer-label {
+  right: 65px;
+}
+
+.buttonizer.right .buttonizer-button.buttonizer-mobile-has-1 .buttonizer-button.button-mobile-1 .buttonizer-label,.buttonizer.right .buttonizer-button.buttonizer-mobile-has-1 .buttonizer-button.button-desktop-1 .buttonizer-label {
+  right: 70px;
+}
+
+.buttonizer.right.buttonizer-desktop-has-1 .buttonizer-label,.buttonizer.right.buttonizer-mobile-has-1 .buttonizer-label {
+  right: 65px;
+}
+
+.buttonizer.left .buttonizer-button .buttonizer-label {
+  left: 55px;
+  text-align: left;
+}
+
+.buttonizer.left .buttonizer-button.buttonizer-head .buttonizer-label {
+  left: 65px;
+}
+
+.buttonizer.left .buttonizer-button.buttonizer-mobile-has-1 .buttonizer-button.button-mobile-1 .buttonizer-label,.buttonizer.left .buttonizer-button.buttonizer-mobile-has-1 .buttonizer-button.button-desktop-1 .buttonizer-label {
+  left: 70px;
+}
+
+.buttonizer.left.buttonizer-desktop-has-1 .buttonizer-label,.buttonizer.left.buttonizer-mobile-has-1 .buttonizer-label {
+  left: 65px;
+}
+
+
+
+
+
+
+h1,h2,h3,h4,h5,h6 ,p {
+  font-family: 'Times New Roman';
+  margin-top: 7px;
+}
+
+
+.widget {
+  padding-top: 20px;
+  /* margin-top: 10px; */
+}
+.widget_title {
+  text-align: center;
+}
+.widget {
+  position: relative;
+  /* padding-top: 40px; */
+  /* margin-top: 48px; */
+  overflow: hidden;
+}
+.textwidget {
+  padding-top: 5px;
+}
+.textwidget {
+  padding-left: 15px;
+}
+.textwidget {
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.textwidget a {
+  border: solid 1px #d8d8d8;
+  color: #404040;
+  padding: 3px 8px;
+  display: inline-block;
+  margin: 3px;
+}
+.textwidget a {
+  border: solid 1px #d8d8d8;
+  color: #404040;
+  padding: 3px 8px;
+  display: inline-block;
+  margin: 3px;
+}
+table {
+  border-left: solid 3px #c5c5c5;
+  border-top: solid 3px #c5c5c5;
+  border-right: solid 3px #c5c5c5;
+  border-bottom: solid 3px #c5c5c5;
+  text-align: left;
+  min-width: 100%;
+  margin-bottom: 20px;
+}
+table th {
+  border-color: #c5c5c5;
+  border-style: solid;
+  border-width: 3px 3px 3px 3px;
+  padding: 5px 8px;
+  text-align: center;
+  margin: 0 auto;
+}
+table td {
+  border-color: #c5c5c5;
+  border-style: solid;
+  border-width: 3px 3px 3px 3px;
+  padding: 5px 8px;
+  text-align: center;
+  margin: 0 auto;
+}
+table td a {
+  color: #428bca;
+  cursor: pointer;
+}
+table p {
+  padding: 0;
+  margin: 0;
+  clear: both;
+  text-align: center;
+}
+a {
+  color: #428bca;
+  cursor: pointer;
+}

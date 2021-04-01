@@ -1,0 +1,10 @@
+.entry-header {
+  padding: 50px 0;
+}
+.breadcrumbs_holder_empty, .breadcrumbs_holder {
+  margin-bottom: 52px;
+}
+p{
+  text-align: justify !important;
+  font-family: "Open Sans", sans-serif;
+}

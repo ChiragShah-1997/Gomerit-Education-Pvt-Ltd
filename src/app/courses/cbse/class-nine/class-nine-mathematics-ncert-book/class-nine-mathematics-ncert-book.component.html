@@ -1,0 +1,39 @@
+<nav aria-label="breadcrumb" class="bread-nav">
+  <ol class="breadcrumb breadcrumb-style">
+      <li class="breadcrumb-item"><a routerLink="/" (click)="us.toggleSectionsVisibility()">Home</a></li>
+      <li class="breadcrumb-item">Courses</li>
+      <li class="breadcrumb-item"><a routerLink="/courses/cbse/class-nine" >Class 9</a></li>
+      <li class="breadcrumb-item"><a routerLink="/courses/cbse/class-nine/class-nine-study-materials">Study Materials</a></li>
+      <li class="breadcrumb-item">Class 9 Mathematics NCERT Book</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>NCERT Book for Class 9 Mathematics  - View all chapters in PDF</h1>
+  <img class="img-responsive" src="../../../../../assets/img/class_9_ncert_mathematics.jpg"><br/><br/>
+  <p><strong>Links to view all the chapters of Class 10 Maths NCERT Book are provided below:</strong></p>
+  <p><strong>Chapter 1: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-1.pdf')">Number System</a></strong></p>
+  <p><strong>Chapter 2: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-2.pdf')">Polynomials</a></strong></p>
+  <p><strong>Chapter 3: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-3.pdf')">Coordinate Geometry</a></strong></p>
+  <p><strong>Chapter 4: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-4.pdf')">Linear Equations in Two Variables</a></strong></p>
+
+  <p><strong>Chapter 5: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-5.pdf')">Introduction to Euclid’s Geometry</a></strong></p>
+  <p><strong>Chapter 6: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-6.pdf')">Lines and Angles</a></strong></p>
+  <p><strong>Chapter 7: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-7.pdf')">Triangles</a></strong></p>
+  <p><strong>Chapter 8: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-8.pdf')">Quadrilaterals</a></strong></p>
+  <p><strong>Chapter 9: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-9.pdf')">Areas of Parallelograms and Triangles</a></strong></p>
+  <p><strong>Chapter 10: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-10.pdf')">Circles</a></strong></p>
+  <p><strong>Chapter 11: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-11.pdf')">Constructions</a></strong></p>
+
+  <p><strong>Chapter 12: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-12.pdf')">Heron’s Formula</a></strong></p>
+  <p><strong>Chapter 13: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-13.pdf')">Surface Areas and Volumes</a></strong></p>
+  <p><strong>Chapter 14: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-14.pdf')">Statistics</a></strong></p>
+  <p><strong>Chapter 15: <a (click)="openPdf('../../../../../assets/pdfjs/class-9/maths/ncert_book/ncert-class-9-mathematics-chapter-15.pdf')">Probability</a></strong></p>
+
+  <!-- <button (click)="openPdf();">Open Pdf</button> -->
+
+ <div id="viewer" style="height:120vh; width:100%;" [hidden]="!isPdfLoaded && !ifanotherlinkclicked" style="height: 85vh;">
+    <ng2-pdfjs-viewer #externalPdfViewer [print]='false' [download]='false' [openFile]='false' [viewBookmark]='false' [externalWindow]='false' [startPrint]='false'></ng2-pdfjs-viewer>
+ </div>
+
+  </div>

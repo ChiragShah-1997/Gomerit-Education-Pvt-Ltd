@@ -1,0 +1,96 @@
+p {
+  font-size: 16px;
+ font-family: "Open Sans", sans-serif;
+}
+
+.bg-pink-dark {
+  background: #FFF1E2;
+}
+.p-1r {
+  padding: 1rem;
+}
+.text-center {
+  text-align: center!important;
+}
+
+
+body .bread-nav {
+  padding-left: 1rem;
+  top: 0rem;
+  position: relative;
+}
+body .bread-nav {
+  position: absolute;
+  left: 0;
+}
+.section-heading {
+  font-family: "Merriweather Sans", sans-serif !important;
+  font-size: 1.75rem !important;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.8rem !important;
+}
+.container-space {
+  padding: 20px!important;
+}
+
+.course_content_description ul li::before,.course_content_description ul li p::before {
+  content: "" counter(my-sec-counter) ". ";
+  color: #344A60;
+  font-weight: 700;
+}
+
+.course_content_description ul li, .course_content_description ul li p{
+   counter-increment: my-sec-counter;
+   font-size: 1.125rem;
+   font-weight: 400;
+   line-height: 1.5rem;
+   list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+ul {
+  list-style-type: disc;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #344A60 !important;
+}
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+/* .course_content_description ul li, .course_content_description ul li p {
+  counter-increment: my-sec-counter;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  list-style: none;
+}
+.ul-pt-4>ul>li {
+  padding-top: 1.5rem!important;
+} */
+
+.individual-courses .features {
+  max-width: 80%;
+}
+.ul-pt-4>ul {
+  max-width: 80%;
+}
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
