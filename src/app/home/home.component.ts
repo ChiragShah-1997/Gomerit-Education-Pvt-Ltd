@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
       });
     });
 
-    //this.automaticallyDeleteLectureScheduledAfterOneDay();
+    this.automaticallyDeleteLectureScheduledAfterOneDay();
 
   }
 
@@ -478,7 +478,7 @@ export class HomeComponent implements OnInit {
         this.toastr.error('Invalid Email Address or Password', 'Error');
       }
     },
-      error => {
+      (error) => {
         this.loadingforlogin = false;
         this.toastr.error(error.name, 'Error');
       });
