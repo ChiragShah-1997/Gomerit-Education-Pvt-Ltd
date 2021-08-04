@@ -5,6 +5,7 @@ import { Enrollment } from '../models/Enrollment';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UtilityService } from '../services/utility.service';
+// import { error } from 'console';
 declare var $: any;
 
 // declare let AOS: any;
@@ -90,7 +91,7 @@ export class HomeComponent implements OnInit {
       });
     });
 
-    this.automaticallyDeleteLectureScheduledAfterOneDay();
+    //this.automaticallyDeleteLectureScheduledAfterOneDay();
 
   }
 
@@ -476,7 +477,11 @@ export class HomeComponent implements OnInit {
         this.loadingforlogin = false;
         this.toastr.error('Invalid Email Address or Password', 'Error');
       }
-    });
+    },
+      error => {
+        this.loadingforlogin = false;
+        this.toastr.error(error.name, 'Error');
+      });
     //this.checkIfAlreadyRegistered(this.loginForm.controls.student_email_id.value , this.loginForm.controls.student_password.value);
 
   }
