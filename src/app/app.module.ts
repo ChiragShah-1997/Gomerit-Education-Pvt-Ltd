@@ -16,7 +16,7 @@ import { GalleryComponent } from './gallery/gallery/gallery.component';
 
 import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailOtpComponent } from './verify-email-otp/verify-email-otp.component';
@@ -31,7 +31,7 @@ import { ClassTenStudyMaterialsComponent } from './courses/cbse/class-ten/class-
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { OnlineLectureComponent } from './admin/online-lecture/online-lecture.component';
-import {DataTablesModule} from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 import { ClassNineStudyMaterialsComponent } from './courses/cbse/class-nine/class-nine-study-materials/class-nine-study-materials.component';
 import { ClassTenMathematicsNcertBookComponent } from './courses/cbse/class-ten/class-ten-mathematics-ncert-book/class-ten-mathematics-ncert-book.component';
 import { ClassTenScienceNcertBookComponent } from './courses/cbse/class-ten/class-ten-science-ncert-book/class-ten-science-ncert-book.component';
@@ -82,13 +82,15 @@ import { CarouselComponent } from './carousel/carousel.component';
     DataTablesModule,
     PdfJsViewerModule,
     ToastrModule.forRoot(
-      { maxOpened: 2,
+      {
+        maxOpened: 2,
         preventDuplicates: true,
-        timeOut: 2000,
+        timeOut: 2500,
         closeButton: true,
         progressBar: true,
         autoDismiss: true,
-        newestOnTop: true}
+        newestOnTop: true
+      }
     )
   ],
   providers: [],

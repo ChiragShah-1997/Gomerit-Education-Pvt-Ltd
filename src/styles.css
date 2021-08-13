@@ -214,6 +214,17 @@ h6,
   .mobile-nav {
     float: right;
   }
+  .about .play-btn {
+    width: 94px;
+    height: 94px;
+    background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 55px);
+    top: calc(50% - 194px);
+    overflow: hidden;
+  }
   /* .nav-menu a {
   display: block;
   position: relative;
@@ -1006,7 +1017,7 @@ section {
   position: relative;
 }
 
-.about .play-btn {
+/* .about .play-btn {
   width: 94px;
   height: 94px;
   background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
@@ -1015,6 +1026,17 @@ section {
   position: absolute;
   left: calc(50% - 47px);
   top: calc(50% - 47px);
+  overflow: hidden;
+} */
+.about .play-btn {
+  width: 94px;
+  height: 94px;
+  background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: calc(50% - 57px);
+  top: calc(50% - 110px);
   overflow: hidden;
 }
 
@@ -1102,7 +1124,7 @@ section {
 }
 
 @media (min-width: 78px) {
-  .about .play-btn {
+  /* .about .play-btn {
     width: 94px;
     height: 94px;
     background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
@@ -1112,7 +1134,29 @@ section {
     left: calc(50% - 53px);
     top: calc(50% - 105px);
     overflow: hidden;
-  }
+  } */
+  /* .about .play-btn {
+    width: 94px;
+    height: 94px;
+    background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 53px);
+    top: calc(50% - 190px);
+    overflow: hidden;
+  } */
+  /* .about .play-btn {
+    width: 94px;
+    height: 94px;
+    background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 55px);
+    top: calc(50% - 45px);
+    overflow: hidden;
+  } */
 }
 
 .play-btn {
@@ -1230,6 +1274,17 @@ section {
 @media (max-width: 768px) {
   .about-lists .content-item {
     padding: 40px 0;
+  }
+  .about .play-btn {
+    width: 94px;
+    height: 94px;
+    background: radial-gradient(#428bca 50%, rgba(66, 139, 202, 0.4) 52%);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 57px);
+    top: calc(50% - 47px);
+    overflow: hidden;
   }
   .play-btn {
     width: 40px;

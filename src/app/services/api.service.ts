@@ -14,7 +14,7 @@ export class ApiService {
   headers = new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*').set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
 
   constructor(private http: HttpClient) {
-    this.Url = 'https://localhost:44305/api';
+    this.Url = 'https://localhost:44378/api';
     //this.Url = 'https://api.gomerit.in/api';
   }
 

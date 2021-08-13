@@ -695,17 +695,18 @@ export class HomeComponent implements OnInit {
         this.NearByLectureScheduleArray.forEach((item) => {
           item.online_lecture_date = item.online_lecture_date.split('T')[0];
         });
+        if (this.NearByLectureScheduleArray.length > 0) {
+          var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+          var now = new Date(this.NearByLectureScheduleArray[0].online_lecture_date);
+          this.dateDetails = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
 
-        var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-        var now = new Date(this.NearByLectureScheduleArray[0].online_lecture_date);
-        this.dateDetails = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
-
-        this.starttimeDetails = this.NearByLectureScheduleArray[0].online_lecture_start_time;
-        this.endtimeDetails = this.NearByLectureScheduleArray[0].online_lecture_end_time;
-        this.standard = this.NearByLectureScheduleArray[0].student_standard;
-        this.topic = this.NearByLectureScheduleArray[0].online_lecture_topic;
-        this.subject = this.NearByLectureScheduleArray[0].online_lecture_subject;
+          this.starttimeDetails = this.NearByLectureScheduleArray[0].online_lecture_start_time;
+          this.endtimeDetails = this.NearByLectureScheduleArray[0].online_lecture_end_time;
+          this.standard = this.NearByLectureScheduleArray[0].student_standard;
+          this.topic = this.NearByLectureScheduleArray[0].online_lecture_topic;
+          this.subject = this.NearByLectureScheduleArray[0].online_lecture_subject;
+        }
       }
 
     });
@@ -714,6 +715,7 @@ export class HomeComponent implements OnInit {
   checkIfsessionExist() {
     if (this.us.sessionExist() && this.us.IfNineClassStudent() && this.NearByLectureScheduleArray[0].student_standard === '9') {
       let url = this.NearByLectureScheduleArray[0].online_lecture_url;
+      console.log(url)
       window.open(url, '_blank');
     }
     else if (this.us.sessionExist() && this.us.IfTenClassStudent() && this.NearByLectureScheduleArray[0].student_standard === '10') {

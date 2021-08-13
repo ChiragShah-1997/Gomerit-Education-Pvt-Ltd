@@ -20,110 +20,112 @@ export class ChangePasswordOnceAfterLoginComponent implements OnInit {
 
   repeatfieldTextType: boolean;
   constructor(public us: UtilityService, private formBuilder: FormBuilder,
-              private apiService: ApiService, private toastr: ToastrService, private router: Router) { }
+    private apiService: ApiService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.us.navigateToTopOnPageInit();
     let getId = sessionStorage.getItem('onetimeview');
     if (getId == null) {
-this.router.navigate(['/']);
-this.us.toggleSectionsVisibility();
+      this.router.navigate(['/']);
+      this.us.toggleSectionsVisibility();
     }
     else {
 
-       this.changePasswordForm = this.formBuilder.group({
-      student_email_id: [sessionStorage.getItem('student_email_id')],
-      student_password: ['', Validators.required],
-      student_confirm_password: ['', Validators.required],
-    } , {validator: this.ConfirmedValidator('student_password', 'student_confirm_password') });
+      this.changePasswordForm = this.formBuilder.group({
+        student_email_id: [sessionStorage.getItem('student_email_id')],
+        student_password: ['', Validators.required],
+        student_confirm_password: ['', Validators.required],
+      }, { validator: this.ConfirmedValidator('student_password', 'student_confirm_password') });
 
 
 
-  }
+    }
   }
   proceed() {
 
-this.submittedproceed = true;
-  // stop here if form is invalid
-if (this.changePasswordForm.invalid) {
-    return;
-  }
-this.loading = true;
-this.changePasswordDetailsForm =  this.formBuilder.group({
-  student_email_id: [sessionStorage.getItem('student_email_id')],
-  student_password: [this.changePasswordForm.controls.student_password.value],
+    this.submittedproceed = true;
+    // stop here if form is invalid
+    if (this.changePasswordForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.changePasswordDetailsForm = this.formBuilder.group({
+      student_email_id: [sessionStorage.getItem('student_email_id')],
+      student_password: [this.changePasswordForm.controls.student_password.value],
 
-});
+    });
 
-this.apiService.PasswordChangeAndPasswordChangeFlagToTrue(this.changePasswordDetailsForm.value).subscribe((data: any) => {
-  if (data !== null){
-console.log(data);
-this.apiService.sendWelcomeGreeting(sessionStorage.getItem('student_name'),
-this.changePasswordForm.controls.student_email_id.value ,
-this.changePasswordForm.controls.student_password.value).subscribe((data: any) => {
-  if (data !== null){
-    this.loading = false;
-    this.toastr.success('Password Updated Successfully' , 'success');
-    sessionStorage.removeItem('onetimeview');
-    sessionStorage.removeItem('student_name');
-    if (data.student_standard === '9') {
-    this.router.navigate(['/courses/cbse/class-nine']);
-    } else {
-  this.router.navigate(['/courses/cbse/class-ten']);
-}
+    this.apiService.PasswordChangeAndPasswordChangeFlagToTrue(this.changePasswordDetailsForm.value).subscribe((respdata: any) => {
+      if (respdata !== null) {
 
-  }
-});
+        this.apiService.sendWelcomeGreeting(sessionStorage.getItem('student_name'),
+          this.changePasswordForm.controls.student_email_id.value,
+          this.changePasswordForm.controls.student_password.value).subscribe((data: any) => {
+            if (respdata !== null) {
 
-}
-else{
+              this.loading = false;
+              this.toastr.success('Password Updated Successfully', 'success');
+              sessionStorage.removeItem('onetimeview');
+              sessionStorage.removeItem('student_name');
+              sessionStorage.setItem('student_standard', respdata.student_standard);
+              if (respdata.student_standard === '9') {
+                this.router.navigate(['/courses/cbse/class-nine']);
+              } else {
+                this.router.navigate(['/courses/cbse/class-ten']);
+              }
 
-}
-});
+            }
+          });
+
+      }
+      else {
+
+      }
+    });
 
   }
 
   //  Switching method
-toggleFieldTextType() {
-  this.fieldTextType = !this.fieldTextType;
-}
-repeattoggleFieldTextType() {
-  this.repeatfieldTextType = !this.repeatfieldTextType;
-}
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+  repeattoggleFieldTextType() {
+    this.repeatfieldTextType = !this.repeatfieldTextType;
+  }
 
- // convenience getter for easy access to form fields
- get f() { return this.changePasswordForm.controls; }
+  // convenience getter for easy access to form fields
+  get f() { return this.changePasswordForm.controls; }
 
   passwordValid(event) {
     this.passwordIsValid = event;
   }
 
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
-  let pass = group.get('student_password').value;
-  let confirmPass = group.get('student_confirm_password').value;
-  return pass === confirmPass ? null : { notSame: true };
-}
+    let pass = group.get('student_password').value;
+    let confirmPass = group.get('student_confirm_password').value;
+    return pass === confirmPass ? null : { notSame: true };
+  }
 
-ConfirmedValidator(controlName: string, matchingControlName: string){
-  return (formGroup: FormGroup) => {
+  ConfirmedValidator(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
       if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
-          return;
+        return;
       }
       if (control.value !== matchingControl.value) {
-          matchingControl.setErrors({ confirmedValidator: true });
+        matchingControl.setErrors({ confirmedValidator: true });
       } else {
-          matchingControl.setErrors(null);
+        matchingControl.setErrors(null);
       }
-  };
-}
+    };
+  }
 
-@HostListener('window:popstate', ['$event'])
-onPopState(event) {
-  console.log('Back button pressed');
-  this.router.navigate(['/']);
-  this.us.toggleSectionsVisibility();
-}
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    console.log('Back button pressed');
+    this.router.navigate(['/']);
+    this.us.toggleSectionsVisibility();
+  }
 
 }
